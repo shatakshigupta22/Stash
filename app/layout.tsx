@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Stash",
   description: "Your personal video library",
+  verification: {
+    google: "C98KRkqw0s9W1uzJTk9r_TcYIspRYTOca9PGUQcE2tU",
+  },
 };
 
 export default function RootLayout({
