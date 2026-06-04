@@ -4,6 +4,7 @@ import { redirect } from "next/navigation"
 import { prisma } from "@/lib/prisma"
 import VideoGrid from "./VideoGrid"
 import ThemeToggle from "@/app/components/ThemeToggle"
+import StashLogo from "@/app/components/StashLogo"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -24,9 +25,9 @@ export default async function Dashboard() {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950 transition-colors">
       <header className="sticky top-0 z-10 border-b border-gray-100 dark:border-neutral-800 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-sm px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-violet-500" />
-          <span className="text-sm font-semibold tracking-tight text-gray-900 dark:text-neutral-100">stash</span>
+        <div className="flex items-center gap-2 text-gray-900 dark:text-neutral-100">
+          <StashLogo className="w-4 h-4" />
+          <span className="text-sm font-semibold tracking-tight">stash</span>
         </div>
         <div className="flex items-center gap-3">
           <Link href="/feedback" className="text-xs text-gray-400 dark:text-neutral-500 hover:text-gray-700 dark:hover:text-neutral-300 transition-colors hidden sm:block">
