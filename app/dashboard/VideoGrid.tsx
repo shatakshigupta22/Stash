@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 type Video = {
@@ -16,6 +16,9 @@ type Video = {
 export default function VideoGrid({ videos: initial }: { videos: Video[] }) {
   const router = useRouter()
   const [videos, setVideos] = useState(initial)
+
+  useEffect(() => { setVideos(initial) }, [initial])
+
   const [importing, setImporting] = useState(false)
   const [recategorizing, setRecategorizing] = useState(false)
   const [importError, setImportError] = useState<string | null>(null)
