@@ -35,6 +35,7 @@ The `[...nextauth]` route must be `force-dynamic` — it uses PrismaAdapter whic
 ## What to be careful about
 
 - **Never** modify the OAuth scopes in `lib/auth.ts` without updating the Google Cloud Console authorized scopes — scope mismatches cause silent auth failures
+- `VideoGrid` is a client component that holds videos in `useState`. After `router.refresh()`, the server re-passes fresh props but React won't re-initialize state — the `useEffect(() => { setVideos(initial) }, [initial])` at the top of VideoGrid is what keeps them in sync. Don't remove it
 - The `DATABASE_URL` must include `?sslmode=require` for Neon
 - Prisma binary targets include `rhel-openssl-3.0.x` and `linux-musl-openssl-3.0.x` for Vercel — don't remove them
 - `NEXTAUTH_URL` in production must match the exact Vercel deployment URL or Google will reject the redirect
